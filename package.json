@@ -4,7 +4,8 @@
   "description": "Social network project (learning)",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server"
+    "start": "nodemon server",
+    "swagger-autogen": "node swagger"
   },
   "keywords": [
     "mern"
@@ -19,6 +20,7 @@
     "validator": "^13.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "swagger-autogen": "^2.10.4"
   }
 }
