@@ -1,16 +1,21 @@
-const express = require("express")
+const express = require("express");
 
-require("dotenv").config({path: "./config/.env"})
-require("./config/db")
+require("dotenv").config({ path: "./config/.env" });
+require("./config/db");
 
-const userRoutes = require("./routes/user.routes")
+const userRoutes = require("./routes/user.routes");
 
-const app = express()
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
-app.use('/api/user', userRoutes)
+app.use("/api/user", userRoutes);
 
 app.listen(process.env.PORT, () => {
-        console.log(`Server listening on port ${process.env.PORT}...`)
-})
+  console.log(`Server listening on port ${process.env.PORT}...`);
+});

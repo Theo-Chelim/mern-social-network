@@ -10,3 +10,9 @@ module.exports.signUp = async (req, res) => {
         res.status(201).json(err);
     }
 };
+
+module.exports.login = async (req, res) => {
+
+};
+
+module.exports.logout = async (req, res) => {};
