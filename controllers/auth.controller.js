@@ -1,3 +1,4 @@
+const jwt = require("json-web-token")
 const UserModel = require("../models/user.model")
 
 module.exports.signUp = async (req, res) => {
@@ -12,7 +13,15 @@ module.exports.signUp = async (req, res) => {
 };
 
 module.exports.login = async (req, res) => {
-
+    const {email, password} = req.body;
+    try {
+        const user = await UserModel.login(email, password);
+        
+        console.log(user._id)
+        res.status(200).json(user._id)
+    } catch(err) {
+        res.status(200).json(err);
+    }
 };
 
 module.exports.logout = async (req, res) => {};
