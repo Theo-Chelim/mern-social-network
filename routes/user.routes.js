@@ -11,6 +11,7 @@ router.get('/logout', authController.logout)
 router.get('/users', userController.getAllUsers)
 router.get('/users/:id', userController.getUserInfos)
 router.put('/users/:id', userController.setUserBio)
+router.delete('/users/:id', userController.deleteUser)
 router.patch('/users/:id/follow', userController.follow)
 router.patch('/users/:id/unfollow', userController.unfollow)
 
