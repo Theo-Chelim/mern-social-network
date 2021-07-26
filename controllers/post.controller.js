@@ -7,7 +7,6 @@ module.exports.readPost = (req, res) => {
   }).sort({ createdAt: -1 });
 };
 
-
 module.exports.createPost = async (req, res) => {
   const newPost = new postModel({
     posterId: req.body.posterId,
@@ -43,4 +42,14 @@ module.exports.updatePost = (req, res) => {
       else console.log("Update error : " + err);
     }
   );
+};
+
+module.exports.deletePost = (req, res) => {
+  if (!ObjectID.isValid(req.params.id))
+    return res.status(400).send("ID unknown : " + req.params.id);
+
+  PostModel.findByIdAndRemove(req.params.id, (err, docs) => {
+    if (!err) res.send(docs);
+    else console.log("Delete error : " + err);
+  });
 };
